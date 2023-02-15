@@ -1,17 +1,21 @@
 @import "config";
 @import "menu";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;800&display=swap");
 
 * {
   box-sizing: border-box;
+  caret-color: transparent;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
   @include background;
   background-color: $primary-color;
-  color: #fff;
+  color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: $font-text;
+
   line-height: 1.5;
 }
 
@@ -20,7 +24,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-weight: 400;
+  font-weight: 600;
 
   &.lg-heading {
     font-size: 6rem;
@@ -50,7 +54,9 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%;
+
+  // height: 100%;
+  min-height: calc(100vh - 60px);
 
   .icons {
     margin-top: 1rem;
@@ -72,3 +78,192 @@ main {
     }
   }
 }
+
+.about-info {
+  display: grid;
+  gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "job1 skills skills";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bio-img {
+  margin: auto;
+  grid-area: bioimage;
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border: $secondary-color 3px solid;
+}
+
+.bio {
+  grid-area: bio;
+  padding: 0 150px 0 0;
+  text-align: left;
+}
+
+.job-1 {
+  grid-area: job1;
+
+  h3{
+    padding: 15px 0 0 15px;
+  }
+
+  h5,p{
+    padding: 0 15px ;
+    text-align: left;
+  }
+  
+ 
+}
+
+.skill {
+  grid-area: skills;
+  text-transform: uppercase;
+
+  li {
+    list-style: none;
+
+    h3 {
+      padding-top: 5px;
+    }
+
+    .bar {
+      display: block;
+      width: 100%;
+      height: 16px;
+      overflow: hidden;
+      margin: 5px 0 0 0;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      border: 1px solid $secondary-color;
+      @include easeOut;
+
+      span {
+        height: 20px;
+        float: left;
+        background: $secondary-color;
+      }
+
+      .html {
+        width: 90%;
+      }
+
+      .css {
+        width: 60%;
+      }
+
+      .javascript {
+        width: 80%;
+      }
+
+      .nodejs {
+        width: 50%;
+      }
+
+      .react {
+        width: 60%;
+      }
+      
+      .php{
+        width: 30%;
+      }
+
+      &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+    }
+  }
+}
+
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+.job {
+  background: lighten($primary-color, 5);
+  padding: 0.5rem;
+  border-bottom: $secondary-color 5px solid;
+}
+
+//Work/Project
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  img {
+    width: 100%;
+    border: 3px solid #fff;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+//Contact page
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    margin-bottom: 3rem;
+    padding: 1.5rem 2.5rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+//Button Styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+}
+
+@import "mobile";

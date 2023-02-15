@@ -1,11 +1,13 @@
-$primary-color: #444;
-$secondary-color: #eece1a;
+$primary-color: #45767c;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;800&display=swap");
+$secondary-color: #fbc86c;
 $show-home-image: true;
 $home-image: url(../img/web-dev-ty.jpg);
-$background-opacity: 0.9;
-
+$background-opacity: 0.93;
+$font-text: "Montserrat", sans-serif;
+$font-weight: 800;
 @mixin easeOut {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-out;
 }
 
 @mixin background {
@@ -26,5 +28,39 @@ $background-opacity: 0.9;
         background: rgba($primary-color, $background-opacity);
       }
     }
+  }
+}
+
+//Set text Color
+@function set-text-color($color) {
+  @if (lightness($color) >40) {
+    @return #fff;
+  } @else {
+    @return #d1ded3;
+  }
+}
+
+//Media Query Mixins
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    @content;
   }
 }
