@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Nazmi-Berisha",
   "main": "index.js",
-  "homepage": "https://nazmi-94.github.io/portfolio",
+  "homepage": "https://nazmi-94.github.io/Portfolio/",
   "scripts": {
     "sass": "node-sass -w scss/ -o dist/css/ --recursive",
     "deploy" : "gh-pages -d dist"
