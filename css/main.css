@@ -195,6 +195,8 @@ main {
 .skill {
   grid-area: skills;
   text-transform: uppercase; }
+  .skill .unorder {
+    padding-left: 0; }
   .skill li {
     list-style: none; }
     .skill li h3 {
@@ -234,6 +236,7 @@ main {
 
 .job {
   background: #4e868c;
+  padding: 0.5rem;
   border-bottom: #fbc86c 5px solid; }
 
 .projects {
