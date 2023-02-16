@@ -181,7 +181,7 @@ main {
 
 .bio {
   grid-area: bio;
-  padding: 0 150px 0 0;
+  padding: 0 50px 0 0;
   text-align: left; }
 
 .job-1 {
@@ -234,7 +234,6 @@ main {
 
 .job {
   background: #4e868c;
-  padding: 0.5rem;
   border-bottom: #fbc86c 5px solid; }
 
 .projects {
@@ -383,5 +382,20 @@ main {
 @media screen and (max-width: 500px) {
   main#home h1 {
     margin-top: 10vh; }
+  #home .lg-heading, #about .lg-heading, #work .lg-heading, #contact .lg-heading {
+    font-size: 50px;
+    display: grid; }
+  #home .bio-img, #about .bio-img, #work .bio-img, #contact .bio-img {
+    width: 250px;
+    height: 250px; }
+  #home .bio, #about .bio, #work .bio, #contact .bio {
+    padding: 0; }
+    #home .bio h3, #about .bio h3, #work .bio h3, #contact .bio h3 {
+      text-align: center; }
+  #home .boxes, #about .boxes, #work .boxes, #contact .boxes {
+    display: flex;
+    flex-wrap: wrap; }
+    #home .boxes div, #about .boxes div, #work .boxes div, #contact .boxes div {
+      font-size: 1.3rem; }
   .projects {
     grid-template-columns: 1fr; } }
